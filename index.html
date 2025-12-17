@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muséum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">  
+</head>
+    <body>
+        <div class="fondu"></div>
+        <div class="fondu-navbar"></div>
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li class="logo"><a href="#accueil"><img src="logos/icone elephant long marron claire.svg" alt="Logo Musée" /></a></li>
+                    <li><a href="#expositions">Expositions</a></li>
+                    <li><a href="#animations">Animations</a></li>
+                    <li><a href="#actualites">Actualités</a></li>
+                    <li class="nav-right">
+                        <a href="#tarifs" class="nav-tarifs" aria-label="Voir les tarifs">
+                            <span class="icon-ticket icon-ticket--mask" aria-hidden="true"></span>
+                            <span class="tarifs-text">Tarifs</span>
+                        </a>
+                    </li>
+                    <li class="lang"><a href="#" aria-haspopup="true">FR <span class="chevron">▾</span></a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="accueil">
+            <div class="container">
+                <h1>Bienvenue</h1><h2>au Muséum de Bordeaux</h2>
+                <div class="actions">
+                    <div class="bouton">
+                        <a href="#tarifs" class="btn-tarifs" aria-label="Voir les tarifs">
+                            <span class="icon-ticket icon-ticket--mask" aria-hidden="true"></span>
+                            Voir les tarifs
+                        </a>
+                    </div>
+                     <p class="horaires"><span class="rond-vert" aria-hidden="true"></span>Ouvert de 10h30 à 17h30</p>
+                </div>
+            </div>
+        </section>
+        <section class="la-une">
+    <div class="container">
+        <img class="trompe-image" src="bg_symbole.png" alt="">
+        <h1 class="la-une-title">À la une</h1>
+        <div class="la-une-grid">
+            <article class="featured">
+                <figure>
+                    <img src="alaune1.png" alt="Orang-Hutan, l'homme de la forêt" />
+                    <span class="badge">Exposition</span>
+                    <span class="badge">Temporaire</span>
+                </figure>
+                <h3>Orang-Hutan, l'homme de la forêt</h3>
+                <p>Le Muséum de Bordeaux présente Besar, un orang-outan naturalisé, au cœur d’une installation qui met en lumière sa ressemblance avec l’humain et sensibilise aux menaces qui pèsent sur son espèce.</p>
+            </article>
+            <div class="side-list">
+                <article class="side-item">
+                    <img src="alaune4.png" alt="À la découverte d’un autre sens" />
+                    <span class="badge">Animation</span>
+                    <div class="side-content">
+                        <h3>À la découverte d’un autre sens</h3>
+                        <p>Apprenez-en plus sur les oiseaux que vous pouvez observer en balade sur la côte Atlantique, grâce à nos deux vitrines murales.</p>
+                    </div>
+                </article>
+
+                <article class="side-item">
+                    <img src="alaune2.png" alt="Le mois de la Recherche" />
+                    <span class="badge">Actualité</span>
+                    <div class="side-content">
+                           <h3>Le mois de la Recherche</h3>
+                        <p>En novembre, le Muséum a accueilli des scientifiques de l’Université de Bordeaux, venus partager leurs recherches et faire découvrir la science autrement à travers diverses animations.</p>
+                    </div>
+                </article>
+
+                <article class="side-item">
+                    <img src="alaune3.png" alt="Essai de me manger si tu peux !" />
+                    <span class="badge">Animation</span>
+                    <div class="side-content">
+                        <h3>Essai de me manger si tu peux !</h3>
+                        <p>Qui mange qui ? À vous de deviner grâce au toucher, aux odeurs… et parfois même au goût. Cette activité met en lumière cette autre manière de classer les espèces animales.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+    </body>
+    <script src="script.js"></script>
+</html>

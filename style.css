@@ -1,0 +1,475 @@
+:root {
+    --color-texte: #352D27;
+    --color-primaire: #C49062;
+    --color-background: #fcfcfc;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+
+nav {
+    position: fixed;
+    background-color: transparent;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    z-index: 10;
+    top: 0;
+    transition: all 1s ease-in-out;
+}
+
+.fondu-navbar {
+    content: "";
+    position: fixed;
+    transition: all 1s ease-in-out;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #F5F5F7;
+    background: linear-gradient(0deg, rgba(245, 245, 247, 0) 50%, rgba(37, 25, 14, 1) 100%);
+    z-index: 5;
+}
+
+.fondu {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: #F5F5F7;
+    background: linear-gradient(0deg, rgba(245, 245, 247, 0) 0%, rgba(37, 25, 14, 1) 100%);
+    z-index: 5;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    align-items: center; 
+    width: 100%;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li.nav-right {
+    margin-left: auto;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+nav ul li.lang a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.4rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+nav ul li.lang .chevron {
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s;
+    font-size: 32px;
+}
+
+nav ul li a:hover {
+    color: #c49062;
+}
+
+.accueil {
+    height: 85vh;
+    padding: 4rem 2rem;
+    background-image: url(accueil.webp);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.accueil .container {
+    position: absolute;
+    padding-left: 1.5rem;
+    padding-bottom: 2rem;
+    padding-right: 10%;
+    background-color: #362e28;
+    background-image: url('Frame 29.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    right: 0;
+    bottom: 30px;
+    margin: 0 auto;
+    color: #fff;
+    text-decoration: none;
+    z-index: 4;
+}
+
+.accueil .container h1 {
+    padding-top: 1rem;
+    font-size: 40px;
+    font-weight: 500;
+    margin: 0 0 0.2rem 0;
+    line-height: 1.05;
+}
+
+.accueil .container h2 {
+    font-size: 32px;
+    margin: 0 0 1rem 0;
+    font-weight: 500;
+}
+.accueil .container p {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    gap: 0.6rem;        
+    font-size: 1.2rem;
+    font-weight: 300;
+}  
+
+.accueil .container a {
+    padding: 0.5rem 1.3rem;
+    background-color: #c49062;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.accueil .container .actions {
+    display: flex;
+    align-items: center; 
+    gap: 2rem;
+    margin-top: 1rem; 
+}
+
+.accueil .container p.horaires {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.rond-vert {
+    width: 1em;
+    height: 1em;
+    background-color: #4CAF50;
+    border-radius: 50%;
+}
+
+.bouton a.btn-tarifs {
+    border: solid 2px transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;       /* espace entre icône et texte */
+    padding: 0.5rem 1rem;
+    color: #fff; /* couleur par défaut */
+    background-color: #c49062;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.bouton a.btn-tarifs:hover {
+    background-color: #fff;
+    color: #000000;
+    border: solid 2px #000000;
+}
+
+.bouton a.btn-tarifs .icon-ticket {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    flex-shrink: 0;
+    vertical-align: middle;
+    transition: all 0.3s ease-in-out;
+}
+
+/* si le SVG inline contient des <path> sans fill, forcer l'usage de currentColor */
+.bouton a.btn-tarifs .icon-ticket path {
+    fill: currentColor;
+}
+
+/* remplacement du filtre hover (rapide, approximatif) */
+.bouton a.btn-tarifs:hover img.icon-ticket  {
+    /* rend l'icône blanche sur fond blanc ; ne permet pas un tint parfait */
+    filter: invert(100%) brightness(0) saturate(100%);
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li.nav-right a.nav-tarifs:hover {
+    color: #c49062; /* même couleur que les autres liens au hover */
+}
+
+.navbar .icon-ticket {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* lien tarfis + icône dans la navbar (droite) */
+nav ul li.nav-right a.nav-tarifs {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/* cache le texte si tu veux uniquement l'icône visible sur petites largeurs */
+nav ul li.nav-right .tarifs-text {
+    display: inline-block;
+    font-size: 26px;
+}
+
+/* taille de l'icône dans la navbar */
+nav ul li.nav-right img.icon-ticket {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    transition: filter 0.25s ease;
+}
+
+/* recolorer l'icône au hover (si SVG externe) — ajuste le filtre si nécessaire */
+nav ul li.nav-right a.nav-tarifs:hover img.icon-ticket {
+    filter: invert(35%) sepia(60%) saturate(500%) hue-rotate(10deg) brightness(95%) contrast(90%);
+}
+
+/* icône via mask : prend la couleur currentColor (exact au hover) */
+.icon-ticket--mask {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: currentColor; /* l'élément prend la couleur du texte */
+    -webkit-mask: url('ticket.svg') no-repeat center/contain;
+    mask: url('ticket.svg') no-repeat center/contain;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    pointer-events: none;
+    vertical-align: middle;
+}
+
+/* taille spécifique dans la navbar */
+nav ul li.nav-right .icon-ticket--mask {
+    width: 2rem;
+    height: 2rem;
+}
+
+/* si tu conservais aussi <img>, le cacher au profit du mask */
+.bouton a.btn-tarifs img.icon-ticket,
+nav ul li.nav-right img.icon-ticket {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    nav ul li.nav-right .tarifs-text { display: none; }
+}
+
+.la-une .container {
+    width: 100%;
+    max-width: none; 
+    margin: 6rem 0;
+    padding: 0 clamp(1rem, 6vw, 120px);
+}
+
+.la-une-title {
+    font-size: 64px;
+    font-weight: 400;
+    margin-bottom: 32px;
+    color: #1b0f0c;
+}
+
+/* centre la zone "la une" et aligne le titre sur le bord gauche de la grid */
+.la-une-title,
+.la-une-grid {
+    /* largeur totale maximale = colonne gauche (440) + gap (56) + colonne droite max (580) */
+    max-width: 1076px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto; /* centre l'ensemble dans le container */
+    box-sizing: border-box;
+}
+
+/* garde la structure de la grille mais sans forcer un recentrage interne */
+.la-une-grid {
+    display: grid;
+    grid-template-columns: 440px minmax(300px, 580px);
+    gap: 56px;
+    align-items: start;
+    /* justify-content retiré pour que la grid occupe sa max-width centrée */
+}
+
+article.featured {
+    width: 440px;
+    margin: 0;           
+}
+
+.featured figure {
+    margin: 0 0 1rem 0;
+    overflow: hidden;
+}
+.featured figure img {
+    display: block;
+    width: 440px;
+    height: 434px;
+    object-fit: cover;
+}
+.featured h3 {
+    font-size: 32px;
+    font-weight: 400;
+    width: 80%;
+    margin: 1rem 0 0.5rem 0;
+    color: #0d0d0d;
+}
+.featured p {
+    color: #222;
+    line-height: 1.6;
+    font-weight: 300;
+    font-size: 16px;
+    width: 80%;
+}
+
+.side-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.side-item {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+.side-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.side-item .side-content h3 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 8px 0;
+    color: #0d0d0d;
+}
+.side-item .side-content p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.4;
+}
+
+
+/* badge pill */
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    background: var(--color-background);
+    color: var(--color-texte);
+    padding: 0px 4px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 300;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    pointer-events: none;
+}
+
+.badge + .badge {
+    left: auto;
+    transform: translateX(100%);
+    margin-left: 15px;
+}
+
+.img-wrap {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.img-wrap .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.img-wrap .badge + .badge {
+    left: auto;
+    transform: translateX(110%);
+    margin-left: 8px;
+}
+
+@media (max-width: 900px) {
+    .badge { font-size: 11px; padding: 3px 6px; top: 8px; left: 8px; }
+}
+
+@media (max-width: 900px) {
+    .la-une-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    article.featured {
+        width: 100%;
+    }
+}
+
+.featured figure,
+.la-une-grid figure,
+.side-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.badge {
+    z-index: 1;
+}
+
+nav.hidden {
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fondu-navbar.hidden,
+.fondu.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.la-une .trompe-image {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    display: block;
+    top: 50%;
+    right: 0;
+    z-index: 100;
+}
