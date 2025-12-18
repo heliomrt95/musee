@@ -121,7 +121,7 @@ nav ul li a:hover {
     background-position: center;
     background-size: cover; 
     right: 0;
-    bottom: 30px;
+    bottom: 60px;
     margin: 0 auto;
     color: #fff;
     text-decoration: none;
@@ -495,8 +495,8 @@ nav.hidden {
 /* container identique à la-une */
 .découvrir .container {
     width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: auto;
     padding: 0 48px;
     box-sizing: border-box;
     position: relative;
@@ -506,9 +506,9 @@ nav.hidden {
 /* grille image gauche / texte droite */
 .decouvrir-grid {
     display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 56px;
-    align-items: center;
+    grid-template-columns: 1fr 350px;
+    gap: 32px;
+    align-items: flex-start;
 }
 
 /* image principale */
@@ -523,12 +523,13 @@ nav.hidden {
 
 /* colonne de texte */
 .decouvrir-content h2 {
-    font-size: 28px;
-    margin: 0 0 12px 0;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 32px 0;
     color: var(--color-texte);
 }
 .decouvrir-content .lead {
-    margin-bottom: 14px;
+    margin-bottom: 32px;
     color: #222;
     line-height: 1.5;
     font-weight: 300;
@@ -538,6 +539,7 @@ nav.hidden {
     line-height: 1.5;
     margin-bottom: 18px;
     font-weight: 300;
+    font-size: 16px;
 }
 
 /* bouton style bordé (comme sur la maquette) */
@@ -577,6 +579,33 @@ nav.hidden {
 .decouvrir-grid > * {
     position: relative;
     z-index: 3;
+}
+
+/* duplicate du bg_symbole à gauche de l'image dans la section Découvrir */
+.découvrir .decouvrir-image {
+    position: relative;
+    z-index: 3; /* image au-dessus du décor */
+    overflow: visible;
+}
+
+.découvrir .decouvrir-image::before {
+    content: "";
+    position: absolute;
+    left: -300px;        /* ajuste la distance à gauche de l'image */
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    width: 500px;        /* taille du symbole dupliqué */
+    height: 700px;
+    background: url("../images/bg_symbole.png") no-repeat center/contain;
+    pointer-events: none;
+    opacity: 1;
+    z-index: 1;          /* derrière l'image mais devant le fond */
+}
+
+/* s'assurer que l'image reste bien au-dessus */
+.découvrir .decouvrir-image img {
+    position: relative;
+    z-index: 2;
 }
 
 /* responsive */
