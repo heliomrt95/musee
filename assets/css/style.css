@@ -121,7 +121,7 @@ nav ul li a:hover {
     background-position: center;
     background-size: cover; 
     right: 0;
-    bottom: 60px;
+    top: 80%;
     margin: 0 auto;
     color: #fff;
     text-decoration: none;
@@ -628,4 +628,152 @@ nav.hidden {
         height: 320px;
     }
     .découvrir::before { display: none; }
+}
+
+/* --- section4 : stats + "Vous Souhaitez" --- */
+.section4 {
+    position: relative;
+    padding: 6rem 0 8rem;
+    background: var(--color-background);
+    overflow: visible;
+}
+
+/* stats row */
+.stats-row {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1180px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+    box-sizing: border-box;
+}
+.stat {
+    min-width: 180px;
+}
+.stat-number {
+    font-size: 48px;
+    color: var(--color-primaire);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.stat-label {
+    color: var(--color-texte);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* "Vous Souhaitez" block */
+.vous-souhaitez { position: relative; max-width: 1180px; margin: 0 auto; padding: 0 48px; box-sizing: border-box; }
+.vs-title {
+    font-size: 48px;
+    color: var(--color-texte);
+    margin: 8px 0 28px 0;
+}
+
+/* left image / right list grid */
+.vous-grid {
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* image */
+.vous-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+/* list */
+.vous-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 0;
+    margin: 0;
+}
+.vous-list li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 8px 16px;
+    background: transparent;
+    cursor: pointer;
+    transition: background .15s ease;
+}
+.vous-list li:hover { background: rgba(0,0,0,0.03); }
+
+.vs-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    background-size: 60% 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* replace backgrounds with your SVG icons (place icons in assets/icons/) */
+.vs-icon.icon-family { background-image: url("../icons/family.svg"); }
+.vs-icon.icon-group  { background-image: url("../icons/group.svg"); }
+.vs-icon.icon-class  { background-image: url("../icons/class.svg"); }
+.vs-icon.icon-access { background-image: url("../icons/wheelchair.svg"); }
+
+.vs-text {
+    color: var(--color-texte);
+    font-size: 18px;
+    flex: 1 1 auto;
+}
+.vs-chevron {
+    color: var(--color-texte);
+    font-size: 22px;
+    flex: 0 0 20px;
+    opacity: 0.6;
+}
+
+/* decorative big symbol on the right */
+.section4-symbol {
+    position: absolute;
+    right: -6%;
+    top: 8%;
+    width: 420px;
+    height: 420px;
+    background: url("../images/bg_symbole.png") no-repeat center/contain;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ensure content sits above decor */
+.vous-souhaitez .container,
+.vs-title,
+.vous-grid > * {
+    position: relative;
+    z-index: 3;
+}
+
+/* responsive */
+@media (max-width: 1000px) {
+    .vous-grid { grid-template-columns: 1fr; gap: 24px; }
+    .vous-image img { height: 240px; }
+    .stats-row { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 32px; }
+    .section4-symbol { display: none; }
+    .vs-title { font-size: 36px; }
+}
+
+@media (max-width: 640px) {
+    .stat-number { font-size: 36px; }
+    .vs-text { font-size: 16px; }
+    .vs-icon { width: 40px; height: 40px; flex: 0 0 40px; }
 }
