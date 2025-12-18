@@ -121,7 +121,7 @@ nav ul li a:hover {
     background-position: center;
     background-size: cover; 
     right: 0;
-    bottom: 30px;
+    top: 80%;
     margin: 0 auto;
     color: #fff;
     text-decoration: none;
@@ -479,7 +479,6 @@ nav.hidden {
     border: none;
 }
 
-/* --- Découvrir (nouvelle section) --- */
 .découvrir {
     position: relative;
     padding: 6.5rem 0;
@@ -487,12 +486,11 @@ nav.hidden {
     overflow: visible;
 }
 
-/* titre grand à gauche */
 .decouvrir-title {
-    font-size: 88px;
+    font-size: 64px;
     line-height: 1;
     font-weight: 400;
-    margin: 0 0 32px 6rem;
+    margin: 0 0 32px 0;
     color: var(--color-texte);
     letter-spacing: -1px;
     position: relative;
@@ -502,8 +500,8 @@ nav.hidden {
 /* container identique à la-une */
 .découvrir .container {
     width: 100%;
-    max-width: 1180px;
-    margin: 0 auto;
+    max-width: 1200px;
+    margin: auto;
     padding: 0 48px;
     box-sizing: border-box;
     position: relative;
@@ -513,16 +511,16 @@ nav.hidden {
 /* grille image gauche / texte droite */
 .decouvrir-grid {
     display: grid;
-    grid-template-columns: 1fr 420px;
-    gap: 56px;
-    align-items: center;
+    grid-template-columns: 1fr 350px;
+    gap: 32px;
+    align-items: flex-start;
 }
 
 /* image principale */
 .decouvrir-image img {
     display: block;
-    width: 100%;
-    height: 520px;
+    width: 672px;
+    height: 483px;
     object-fit: cover;
     border-radius: 2px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.06);
@@ -530,12 +528,13 @@ nav.hidden {
 
 /* colonne de texte */
 .decouvrir-content h2 {
-    font-size: 28px;
-    margin: 0 0 12px 0;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 32px 0;
     color: var(--color-texte);
 }
 .decouvrir-content .lead {
-    margin-bottom: 14px;
+    margin-bottom: 32px;
     color: #222;
     line-height: 1.5;
     font-weight: 300;
@@ -545,6 +544,7 @@ nav.hidden {
     line-height: 1.5;
     margin-bottom: 18px;
     font-weight: 300;
+    font-size: 16px;
 }
 
 /* bouton style bordé (comme sur la maquette) */
@@ -586,6 +586,33 @@ nav.hidden {
     z-index: 3;
 }
 
+/* duplicate du bg_symbole à gauche de l'image dans la section Découvrir */
+.découvrir .decouvrir-image {
+    position: relative;
+    z-index: 3; /* image au-dessus du décor */
+    overflow: visible;
+}
+
+.découvrir .decouvrir-image::before {
+    content: "";
+    position: absolute;
+    left: -300px;        /* ajuste la distance à gauche de l'image */
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    width: 500px;        /* taille du symbole dupliqué */
+    height: 700px;
+    background: url("../images/bg_symbole.png") no-repeat center/contain;
+    pointer-events: none;
+    opacity: 1;
+    z-index: 1;          /* derrière l'image mais devant le fond */
+}
+
+/* s'assurer que l'image reste bien au-dessus */
+.découvrir .decouvrir-image img {
+    position: relative;
+    z-index: 2;
+}
+
 /* responsive */
 @media (max-width: 900px) {
     .decouvrir-title {
@@ -601,4 +628,152 @@ nav.hidden {
         height: 320px;
     }
     .découvrir::before { display: none; }
+}
+
+/* --- section4 : stats + "Vous Souhaitez" --- */
+.section4 {
+    position: relative;
+    padding: 6rem 0 8rem;
+    background: var(--color-background);
+    overflow: visible;
+}
+
+/* stats row */
+.stats-row {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1180px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+    box-sizing: border-box;
+}
+.stat {
+    min-width: 180px;
+}
+.stat-number {
+    font-size: 48px;
+    color: var(--color-primaire);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+.stat-label {
+    color: var(--color-texte);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* "Vous Souhaitez" block */
+.vous-souhaitez { position: relative; max-width: 1180px; margin: 0 auto; padding: 0 48px; box-sizing: border-box; }
+.vs-title {
+    font-size: 48px;
+    color: var(--color-texte);
+    margin: 8px 0 28px 0;
+}
+
+/* left image / right list grid */
+.vous-grid {
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+/* image */
+.vous-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+/* list */
+.vous-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    padding: 0;
+    margin: 0;
+}
+.vous-list li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 8px 16px;
+    background: transparent;
+    cursor: pointer;
+    transition: background .15s ease;
+}
+.vous-list li:hover { background: rgba(0,0,0,0.03); }
+
+.vs-icon {
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    background-size: 60% 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* replace backgrounds with your SVG icons (place icons in assets/icons/) */
+.vs-icon.icon-family { background-image: url("../icons/family.svg"); }
+.vs-icon.icon-group  { background-image: url("../icons/group.svg"); }
+.vs-icon.icon-class  { background-image: url("../icons/class.svg"); }
+.vs-icon.icon-access { background-image: url("../icons/wheelchair.svg"); }
+
+.vs-text {
+    color: var(--color-texte);
+    font-size: 18px;
+    flex: 1 1 auto;
+}
+.vs-chevron {
+    color: var(--color-texte);
+    font-size: 22px;
+    flex: 0 0 20px;
+    opacity: 0.6;
+}
+
+/* decorative big symbol on the right */
+.section4-symbol {
+    position: absolute;
+    right: -6%;
+    top: 8%;
+    width: 420px;
+    height: 420px;
+    background: url("../images/bg_symbole.png") no-repeat center/contain;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ensure content sits above decor */
+.vous-souhaitez .container,
+.vs-title,
+.vous-grid > * {
+    position: relative;
+    z-index: 3;
+}
+
+/* responsive */
+@media (max-width: 1000px) {
+    .vous-grid { grid-template-columns: 1fr; gap: 24px; }
+    .vous-image img { height: 240px; }
+    .stats-row { flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 32px; }
+    .section4-symbol { display: none; }
+    .vs-title { font-size: 36px; }
+}
+
+@media (max-width: 640px) {
+    .stat-number { font-size: 36px; }
+    .vs-text { font-size: 16px; }
+    .vs-icon { width: 40px; height: 40px; flex: 0 0 40px; }
 }
