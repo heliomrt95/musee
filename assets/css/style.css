@@ -218,7 +218,7 @@ nav ul li a:hover {
 }
 
 body {
-    background-color: #FCFCFC;
+    background-color: var(--color-background);
 }
 
 nav ul li.nav-right a.nav-tarifs:hover {
