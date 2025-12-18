@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muséum</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">  
@@ -15,7 +15,7 @@
         <header>
             <nav class="navbar">
                 <ul>
-                    <li class="logo"><a href="#accueil"><img src="logos/icone elephant long marron claire.svg" alt="Logo Musée" /></a></li>
+                    <li class="logo"><a href="#accueil"><img src="/assets/logos/icone elephant long marron claire.svg" alt="Logo Musée" /></a></li>
                     <li><a href="#expositions">Expositions</a></li>
                     <li><a href="#animations">Animations</a></li>
                     <li><a href="#actualites">Actualités</a></li>
@@ -45,12 +45,12 @@
         </section>
         <section class="la-une">
     <div class="container">
-        <img class="trompe-image" src="bg_symbole.png" alt="">
+        <img class="trompe-image" src="assets/images/bg_symbole.png" alt="">
         <h1 class="la-une-title">À la une</h1>
         <div class="la-une-grid">
             <article class="featured">
                 <figure>
-                    <img src="alaune1.png" alt="Orang-Hutan, l'homme de la forêt" />
+                    <img src="assets/images/alaune1.png" alt="Orang-Hutan, l'homme de la forêt" />
                     <span class="badge">Exposition</span>
                     <span class="badge">Temporaire</span>
                 </figure>
@@ -59,7 +59,7 @@
             </article>
             <div class="side-list">
                 <article class="side-item">
-                    <img src="alaune4.png" alt="À la découverte d’un autre sens" />
+                    <img src="assets/images/alaune4.png" alt="À la découverte d’un autre sens" />
                     <span class="badge">Animation</span>
                     <div class="side-content">
                         <h3>À la découverte d’un autre sens</h3>
@@ -68,7 +68,7 @@
                 </article>
 
                 <article class="side-item">
-                    <img src="alaune2.png" alt="Le mois de la Recherche" />
+                    <img src="assets/images/alaune2.png" alt="Le mois de la Recherche" />
                     <span class="badge">Actualité</span>
                     <div class="side-content">
                            <h3>Le mois de la Recherche</h3>
@@ -77,7 +77,7 @@
                 </article>
 
                 <article class="side-item">
-                    <img src="alaune3.png" alt="Essai de me manger si tu peux !" />
+                    <img src="assets/images/alaune3.png" alt="Essai de me manger si tu peux !" />
                     <span class="badge">Animation</span>
                     <div class="side-content">
                         <h3>Essai de me manger si tu peux !</h3>
@@ -88,6 +88,47 @@
         </div>
     </div>
 </section>
+<section class="découvrir">
+    
+</section>
     </body>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const nav = document.querySelector('nav');
+    const fonduNavbar = document.querySelector('.fondu-navbar');
+    const DELTA = 10;
+
+
+    // ne rien faire s'il n'y a pas de nav
+    if (!nav || !fonduNavbar) return;
+
+    function onScroll() {
+        const currentY = window.scrollY;
+        if (Math.abs(currentY - lastY) < DELTA) {
+            ticking = false;
+            return;
+        }
+
+        if (currentY > lastY && currentY > 100) {
+            nav.classList.add('hidden');
+            fonduNavbar.classList.add('hidden');
+        } else {
+            nav.classList.remove('hidden');
+            fonduNavbar.classList.remove('hidden');
+        }
+
+        lastY = currentY <= 0 ? 0 : currentY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(onScroll);
+            ticking = true;
+        }
+    }, { passive: true });
+});
+    </script>
 </html>

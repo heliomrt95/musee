@@ -122,7 +122,7 @@ nav ul li a:hover {
     margin: 0 auto;
     color: #fff;
     text-decoration: none;
-    z-index: 4;
+    z-index: 40;
 }
 
 .accueil .container h1 {
@@ -465,11 +465,11 @@ nav.hidden {
 }
 
 .la-une .trompe-image {
-    width: 150px;
-    height: 150px;
+    width: 950px;
+    height: 950px;
     position: absolute;
     display: block;
-    top: 50%;
+    bottom: -50%;
     right: 0;
     z-index: 100;
 }
