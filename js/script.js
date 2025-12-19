@@ -1,3 +1,4 @@
+        // #region agent log
         document.addEventListener('DOMContentLoaded', function () {
             let lastY = window.scrollY;
             let ticking = false;
@@ -22,3 +23,4 @@
                 if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
             }, { passive: true });
         });
+        // #endregion agent log
